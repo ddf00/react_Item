@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import qs from "querystring";
+import {message as msg} from "antd";
 // 配置请求路径
 axios.defaults.baseURL = ''
 // 配置超时时间
@@ -9,12 +10,12 @@ axios.defaults.tiemout = 20000
 
 
 // 请求拦截器
-axios.interceptors.reqest.use((config) => {
+axios.interceptors.request.use((config) => {
     const {
         method,
         data
     } = config
-
+    // 统一处理post请求json编码问题
     if (method.toLowerCase() === 'post' && data instanceof Object) {
         config.data = qs.stringify(data)
     }
@@ -30,10 +31,14 @@ axios.interceptors.response.use(
         return response.data
     },
     // 失败的回调
-    err => {
+    error => {
         let errMsg = '位置错误, 请联系管理员'
-        const {message} = err
-        
+        const {message} = error
+        if(message.indexOf('401') !== -1) errMsg = "未登录或身份过期, 请重新登录"
+        else if(message.indexOf('Network Error') !== -1) errMsg = "网络断开, 请检查网络"
+        else if(message.indexOf('timeout') !== -1) errMsg = '请求超时 网路不稳定'
+        msg.error(errMsg, 1) 
+        return new Promise(() => {})
     }
 )
 

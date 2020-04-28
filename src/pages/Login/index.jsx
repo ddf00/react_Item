@@ -1,20 +1,15 @@
 import React, { Component } from "react";
 import { Form, Input, Button } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
-import axios from "axios";
-import qs from "querystring";
+import {reqLogin} from "../../api";
 
 import logo from "./images/logo.png";
 import "./css/login.less";
 export default class Login extends Component {
     // 表单验证成功提交的回调
-    onFinish = values => {
-        console.log(values);
-        axios.post("http://localhost:3000/login", qs.stringify(values))
-        .then(
-            resposne => {console.log("成功", resposne)},
-            error => {console.log("失败",error)}
-        )
+    onFinish = async values => {
+        let result = await reqLogin(values)
+        console.log(result);
     }
   // 密码校验
   pwdValidator = (_, value = "") => {
