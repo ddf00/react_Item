@@ -1,13 +1,16 @@
 import React,{Component} from 'react'
-import {Button} from "antd";
+import {Switch,Route,Redirect} from "react-router-dom";
 
+import Login from "./pages/Login";
+import Admin from "./pages/Admin";
 export default class MyComponent extends Component{
   render(){
     return (
-      <div>
-          App...
-          <Button type="primary">点击</Button>
-      </div>
+        <Switch>
+            <Route path="/login" component={Login}></Route>
+            <Route path="/admin" component={Admin}></Route>
+            <Redirect to="/login"/>
+        </Switch>
     )
   }
 }
