@@ -1,27 +1,41 @@
 import React, { Component } from "react";
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, message } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
-import {reqLogin} from "../../api";
+import { reqLogin } from "@/api";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import { saveUserInfo } from "@/redux/actions/login";
 
 import logo from "./images/logo.png";
 import "./css/login.less";
-export default class Login extends Component {
-    // 表单验证成功提交的回调
-    onFinish = async values => {
-        let result = await reqLogin(values)
-        console.log(result);
+class Login extends Component {
+  // 表单验证成功提交的回调
+  onFinish = async (values) => {
+    let result = await reqLogin(values);
+    const { status, data, msg } = result;
+    if (status === 0) {
+      // 成功
+      message.success("登录成功", 1); // 提示
+      // 向localstoreage中保存用户信息
+      this.props.saveUserInfo(data);
+    } else {
+      message.error(msg);
     }
+    console.log(result);
+  };
   // 密码校验
   pwdValidator = (_, value = "") => {
     let errMsgArr = [];
     if (!value.trim()) return Promise.reject("密码必须输入");
     if (value.length < 4) errMsgArr.push("密码必须大于4位");
     if (value.length > 12) errMsgArr.push("密码必须小于12位");
-    if (!/^\w+$/.test(value)) errMsgArr.push("密码只能是英文, 数字, 下划线组成");
-    if(errMsgArr.length !== 0) return Promise.reject(errMsgArr)
+    if (!/^\w+$/.test(value))
+      errMsgArr.push("密码只能是英文, 数字, 下划线组成");
+    if (errMsgArr.length !== 0) return Promise.reject(errMsgArr);
     else return Promise.resolve();
   };
   render() {
+    if (this.props.isLogin) return <Redirect to="/admin" />;
     return (
       <div className="login">
         <header>
@@ -73,3 +87,8 @@ export default class Login extends Component {
     );
   }
 }
+
+export default connect(
+  (state) => ({ isLogin: state.userInfo.isLogin }), //映射状态
+  { saveUserInfo } // 映射操作状态的方法
+)(Login);
