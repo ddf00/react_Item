@@ -15,9 +15,10 @@ class Login extends Component {
     const { status, data, msg } = result;
     if (status === 0) {
       // 成功
-      message.success("登录成功", 1); // 提示
-      // 向localstoreage中保存用户信息
+      message.success ("登录成功", 1); // 提示
+      // 向redux和localstoreage中保存用户信息
       this.props.saveUserInfo(data);
+      // this.props.history.replace('/admin')
     } else {
       message.error(msg);
     }
@@ -87,6 +88,7 @@ class Login extends Component {
     );
   }
 }
+
 
 export default connect(
   (state) => ({ isLogin: state.userInfo.isLogin }), //映射状态
