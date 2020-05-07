@@ -1,0 +1,73 @@
+{
+    "error": 0,
+    "status": "success",
+    "date": "2020-05-07",
+    "results": [{
+        "currentCity": "南昌",
+        "pm25": "57",
+        "index": [{
+                "des": "天气热，建议着短裙、短裤、短薄外套、T恤等夏季服装。",
+                "tipt": "穿衣指数",
+                "title": "穿衣",
+                "zs": "热"
+            },
+            {
+                "des": "不宜洗车，未来24小时内有雨，如果在此期间洗车，雨水和路上的泥水可能会再次弄脏您的爱车。",
+                "tipt": "洗车指数",
+                "title": "洗车",
+                "zs": "不宜"
+            },
+            {
+                "des": "天气转凉，空气湿度较大，较易发生感冒，体质较弱的朋友请注意适当防护。",
+                "tipt": "感冒指数",
+                "title": "感冒",
+                "zs": "较易发"
+            },
+            {
+                "des": "有降水，且风力较强，气压较低，推荐您在室内进行低强度运动；若坚持户外运动，须注意避雨防风。",
+                "tipt": "运动指数",
+                "title": "运动",
+                "zs": "较不宜"
+            },
+            {
+                "des": "属弱紫外线辐射天气，无需特别防护。若长期在户外，建议涂擦SPF在8-12之间的防晒护肤品。",
+                "tipt": "紫外线强度指数",
+                "title": "紫外线强度",
+                "zs": "最弱"
+            }
+        ],
+        "weather_data": [{
+                "date": "周四 05月07日 (实时：23℃)",
+                "dayPictureUrl": "http://api.map.baidu.com/images/weather/day/leizhenyu.png",
+                "nightPictureUrl": "http://api.map.baidu.com/images/weather/night/leizhenyu.png",
+                "weather": "雷阵雨",
+                "wind": "东风3-4级",
+                "temperature": "28 ~ 21℃"
+            },
+            {
+                "date": "周五",
+                "dayPictureUrl": "http://api.map.baidu.com/images/weather/day/duoyun.png",
+                "nightPictureUrl": "http://api.map.baidu.com/images/weather/night/leizhenyu.png",
+                "weather": "多云转雷阵雨",
+                "wind": "西南风4-5级",
+                "temperature": "33 ~ 24℃"
+            },
+            {
+                "date": "周六",
+                "dayPictureUrl": "http://api.map.baidu.com/images/weather/day/leizhenyu.png",
+                "nightPictureUrl": "http://api.map.baidu.com/images/weather/night/leizhenyu.png",
+                "weather": "雷阵雨",
+                "wind": "北风3-4级",
+                "temperature": "27 ~ 21℃"
+            },
+            {
+                "date": "周日",
+                "dayPictureUrl": "http://api.map.baidu.com/images/weather/day/duoyun.png",
+                "nightPictureUrl": "http://api.map.baidu.com/images/weather/night/qing.png",
+                "weather": "多云转晴",
+                "wind": "北风3-4级",
+                "temperature": "28 ~ 20℃"
+            }
+        ]
+    }]
+}
