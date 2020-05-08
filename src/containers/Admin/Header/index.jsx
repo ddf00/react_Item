@@ -14,7 +14,7 @@ import {reqWether} from "@/api";
 const { confirm } = Modal;
 @connect(
   // 映射状态
-  (state) => ({ username: state.userInfo.user.username }),
+  (state) => ({ username: state.userInfo.user.username, title: state.title }),
   // 映射状态中的方法
   { deleteuserinfo }
 )
@@ -80,7 +80,7 @@ class Header extends Component {
         </div>
         <div className="header-bottom">
           <div className="bottom-left">
-            <span>首页</span>
+            <span>{this.props.title}</span>
           </div>
           <div className="bottom-right">
             <span>{time}</span>

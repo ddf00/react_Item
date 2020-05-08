@@ -13,7 +13,7 @@ export default function (ReciveComponent) {
             const {isLogin} = this.props // 获取登录标识
             const {pathname} = this.props.location
             if(!isLogin && pathname !== '/login') return <Redirect to="/login"/>
-            if(isLogin && pathname === '/login') return <Redirect to="/admin"/>
+            if(isLogin && pathname === '/login') return <Redirect to="/admin/home"/>
             return <ReciveComponent {...this.props}/>
         }
     }

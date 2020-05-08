@@ -12,10 +12,9 @@ import Home from "./Home";
 import Bar from "./Bar";
 import Line from "./Line";
 import Pie from "./Pie";
-import Product from "./Product";
 import Role from "./Role";
 import User from "./User";
-import Pruduct from "./Product";
+import Product from "./Product";
 const { Footer, Sider, Content } = Layout;
 @connect(
   (state) => ({
@@ -30,7 +29,7 @@ class Admin extends Component {
     return (
       <Layout className="admin-container">
         <Sider>
-          <LeftNav />
+          <LeftNav/>
         </Sider>
         <Layout>
           <Header />
@@ -38,12 +37,12 @@ class Admin extends Component {
             <Switch>
               <Route path="/admin/home" component={Home}/>
               <Route path="/admin/prod_about/category" component={Category}/>
-              <Route path="/admin/prod_about/pruduct" component={Pruduct}/>
+              <Route path="/admin/prod_about/product" component={Product}></Route>
               <Route path="/admin/user" component={User}/>
               <Route path="/admin/role" component={Role}/>
               <Route path="/admin/charts/bar" component={Bar}/>
-              <Route path="/admin//charts/line" component={Line}/>
-              <Route path="/admin//charts/pie" component={Pie}/>
+              <Route path="/admin/charts/line" component={Line}/>
+              <Route path="/admin/charts/pie" component={Pie}/>
               <Redirect to="/admin/home"/>
             </Switch>
           </Content>

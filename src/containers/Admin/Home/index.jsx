@@ -4,7 +4,7 @@ export default class Home extends Component{
   render(){
     return (
       <div>
-          Home
+          欢迎使用商品管理系统
       </div>
     )
   }

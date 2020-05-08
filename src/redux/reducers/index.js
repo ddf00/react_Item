@@ -2,7 +2,10 @@
 import {combineReducers} from "redux";
 
 import LoginReducer from "./login";
+// 管理标题
+import titleReducer from "./title";
 
 export default combineReducers({
-    userInfo: LoginReducer
+    userInfo: LoginReducer,
+    title: titleReducer
 })
